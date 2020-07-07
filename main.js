@@ -20,6 +20,20 @@ let rtoc = r => (r-rmin)/br*width
 let itoc = i => height-(i-imin)/bi*height
 let plot = (r, i) => ctx.fillRect(rtoc(r), itoc(i), 1, 1)
 
+function line (ra, ia, rb, ib) {
+    let rca = rtoc(ra)
+    let rcb = rtoc(rb)
+    let ica = itoc(ia)
+    let icb = itoc(ib)
+    ctx.beginPath()
+    ctx.moveTo(rca, ica)
+    ctx.lineTo(rcb, icb)
+    ctx.stroke()
+}
+
+line (rmin, 0, rmax, 0)
+line (0, imin, 0, imax)
+
 for (let n = rmin; n < rmax; n += 0.001) {
     let a = new Complex(p ** n).sub(new Complex(-1).div(p).pow(n)).div(Math.sqrt(5))
     plot (a.re, a.im)
