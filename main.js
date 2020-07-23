@@ -35,7 +35,7 @@ line (rmin, 0, rmax, 0)
 line (0, imin, 0, imax)
 
 for (let n = rmin; n < rmax; n += 0.001) {
-    let a = new Complex(p ** n).minus(new Complex(-1).div(p).pown(n)).div(new Complex(Math.sqrt(5)))
+    let a = new Complex(p ** n).sub(new Complex(-1).div(p).pow(n)).div(new Complex(Math.sqrt(5)))
     // console.log(a)
     plot (a.re, a.im)
 }
